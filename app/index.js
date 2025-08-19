@@ -42,7 +42,7 @@ App.use(UserAgent.express());
 
 // Validar SERVIDOR ACTIVO
 App.get('/', async (_req, _res) => {
-  return _res.status(200).send(`It works!. ${process.env.CC_CORE_NAME} (${version})`);
+  return _res.status(200).send(`Servidor backend Trend-On esta funcionando!. ${process.env.CC_CORE_NAME} (${version})`);
 });
 
 //  Obtener informacion del Proyecto

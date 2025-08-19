@@ -4,8 +4,8 @@ const ParseExpressValidatorUtilClass = require('../../common/utils/parse_express
 const ErrorUtilClass = require('../../common/utils/error.util_class');
 const axios = require('axios');
 
-const { updateTokenService, createTokenSessionService, structuringRequesttrdService, decryptDataService, listPreferencesService, parsetrdNumberService } = require('../services/util.service');
-const { assignAnFcmToSecureUser } = require('../services/auth.service');
+const { updateTokenService, createTokenSessionService, structuringRequesttrdService, decryptDataService, listPreferencesService, parsetrdNumberService } = require('../services/util.services');
+// const { assignAnFcmToSecureUser } = require('../services/auth.service');
 
 const API_NOTIFICATIONS = `${process.env.API_PUSH_NOTIFICATIONS}/push/`;
 console.log('API_NOTIFICATIONS ',API_NOTIFICATIONS)

@@ -5,7 +5,7 @@ const Router = require('express').Router();
 // Middlewares
 const jwtMiddleware = require('../middlewares/jwt.middleware');
 
-const { ROUTES_LOGS, ACTIONS_LOGS } = require('../../common/configs/constants.config');
+const { ROUTES_LOGS, ACTIONS_LOGS } = require('../configs/constants.config');
 
 const {
   getNotifications,

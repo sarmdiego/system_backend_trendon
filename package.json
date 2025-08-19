@@ -5,8 +5,8 @@
   "main": "trend-on-backend.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "dev": "nodemon --trace-warnings --use_strict trend-on-backend.js",
-    "start": "pm2 delete trend-on-backend.js; pm2 start trend-on-backend.js"
+    "dev": "nodemon --trace-warnings --use_strict trend-On-config.js",
+    "start": "pm2 delete trend-On-config.js; pm2 start trend-On-config.js"
   },
   "author": "Trend-On",
   "license": "MIT",
