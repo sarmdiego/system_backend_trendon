@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const notificationSchema = new Schema({
-  cedula: { type: String, required: true, index: true },
+  userDeviceToken: { type: String, required: true, index: true },
+  bussinessName: { type: String, required: true },
   tipoNotificacion: { type: String, required: true },
   fechaEnviada: { type: Date, default: Date.now },
   leida: { type: Boolean, default: false },
@@ -13,7 +14,7 @@ const notificationSchema = new Schema({
 });
 
 // Crear índices
-notificationSchema.index({ cedula: 1 });
+notificationSchema.index({ userDeviceToken: 1 });
 notificationSchema.index({ status: 1 });
 
 const Notification = mongoose.model('Notification', notificationSchema);

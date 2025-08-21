@@ -1,13 +1,14 @@
 const Notification = require('../../../app/models/notifications.model');
 
-async function saveNotification(cedula, tipoNotificacion, data) {
+async function saveNotification(userDeviceToken, tipoNotificacion, data) {
   const titulo = 'Trendon Informa';
   const mensaje = data.mensaje; // Usar el mensaje generado desde el controlador
   const ruta = ''; // Define la ruta según sea necesario
   const status = 0; // Define el estado según sea necesario
 
   const newNotification = new Notification({
-    cedula,
+    userDeviceToken,
+    bussinessName,
     tipoNotificacion,
     titulo,
     mensaje,
@@ -25,13 +26,14 @@ async function saveNotification(cedula, tipoNotificacion, data) {
   }
 }
 
-async function saveNotification400(cedula, tipoNotificacion, mensaje) {
+async function saveNotification400(userDeviceToken, tipoNotificacion, mensaje) {
   const titulo = 'Trendon Informa';
   const ruta = ''; // Define la ruta según sea necesario
   const status = 0; // Define el estado según sea necesario
 
   const newNotification = new Notification({
-    cedula,
+    userDeviceToken,
+    bussinessName,
     tipoNotificacion,
     titulo,
     mensaje,

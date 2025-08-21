@@ -46,7 +46,7 @@ Router.post('/v1/operation/count_notications', jwtMiddleware(), /* logMiddleware
  * Actualizar el FCM token del usuario
  * @method POST
  * @type BODY
- * @param {String}  cedula - Cédula del usuario
+ * @param {String}  userDeviceToken - Cédula del usuario
  * @param {String}  fcmToken - FCM token del usuario
  */
 Router.post('/v1/operation/update_fcm_token', jwtMiddleware(), logMiddleware({ accion: ACTIONS_LOGS.CONSULTAR, modulo: ROUTES_LOGS.OPERATION_UPDATE_FCM_TOKEN }), updateFcmToken);

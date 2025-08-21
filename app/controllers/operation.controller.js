@@ -47,7 +47,7 @@ module.exports = {
           cuentaOrigen: _req.CC.MT_DB_USER?.accountList[Number(_req.body?.idAba) - 1]?.accountNumber,
           cuentaDestino: _req.body.sendAccount,
           nacionalidad: DOCUMENT_TYPE,
-          cedula: _req.body.documentNumber,
+          userDeviceToken: _req.body.documentNumber,
           nombre: 'APP',
           monto: String(_req.body.amount).replaceAll(/[.,]/g, ''),
         },
@@ -459,7 +459,7 @@ module.exports = {
             //Si se envió con un 0 al inicio lo eliminamos
             telefonoDestino: `58${_req.body.sendPhone?.charAt(0) == 0 ? _req.body.sendPhone.slice(1) : _req.body.sendPhone}`,
             bancoDestino: DB_BANK.code,
-            cedulaDestino: `${DOCUMENT_TYPE}${_req.body.documentNumber}`,
+            userDeviceTokenDestino: `${DOCUMENT_TYPE}${_req.body.documentNumber}`,
             monto: String(_req.body.amount).replaceAll(/[.,]/g, ''),
             ipOrigen: _req.headers['x-forwarded-for'] || _req.socket.remoteAddress,
             concepto: _req.body.description,
@@ -485,7 +485,7 @@ module.exports = {
             //Si se envió con un 0 al inicio lo eliminamos
             telefonoDestino: `58${_req.body.sendPhone?.charAt(0) == 0 ? _req.body.sendPhone.slice(1) : _req.body.sendPhone}`,
             bancoDestino: DB_BANK.code,
-            cedulaDestino: `${DOCUMENT_TYPE}${_req.body.documentNumber}`,
+            userDeviceTokenDestino: `${DOCUMENT_TYPE}${_req.body.documentNumber}`,
             monto: String(_req.body.amount).replaceAll(/[.,]/g, ''),
             ipOrigen: _req.headers['x-forwarded-for'] || _req.socket.remoteAddress,
             concepto: _req.body.description,

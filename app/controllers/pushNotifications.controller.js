@@ -26,18 +26,18 @@ console.log('API_NOTIFICATIONS ',API_NOTIFICATIONS)
 const updateFcmToken = async (_req, _res) => {
 	const CC_RESPONSE = new ResponseUtilClass(_req, _res);
 	const data = JSON.parse(_req.body);
-	const { cedula, fcmToken } = data;
-	console.log({ cedula, fcmToken })
+	const { userDeviceToken, fcmToken } = data;
+	console.log({ userDeviceToken, fcmToken })
 
   try {
     // Validar los campos requeridos
-    if (!cedula || !fcmToken) {
+    if (!userDeviceToken || !fcmToken) {
       throw new ErrorUtilClass(__filename, 'PUSH001', null, 'Datos insuficientes').frontend();
     }
 
     // Actualizar el FCM token del usuario
-    await assignAnFcmToSecureUser(cedula, fcmToken, null);
-		console.log('Al parecer se guardon exito', { cedula, fcmToken })
+    await assignAnFcmToSecureUser(userDeviceToken, fcmToken, null);
+		console.log('Al parecer se guardon exito', { userDeviceToken, fcmToken })
     // Responder solicitud
     return CC_RESPONSE.send('FCM token actualizado con éxito', null, 'COPES001', null);
 	} catch (_error) {
@@ -49,13 +49,13 @@ const updateFcmToken = async (_req, _res) => {
 const getNotifications = async (_req, _res) => {
     const CC_RESPONSE = new ResponseUtilClass(_req, _res);
     const data = JSON.parse(_req.body);
-    let {cedula} = data;
-    console.log('cedula... ', cedula);
+    let {userDeviceToken} = data;
+    console.log('userDeviceToken... ', userDeviceToken);
     // const BODY = {
-    //     cedula: cedula,
+    //     userDeviceToken: userDeviceToken,
     // }
     
-    const notifications = await getAllNotificationsApi(cedula);
+    const notifications = await getAllNotificationsApi(userDeviceToken);
     
     try {
     
@@ -70,9 +70,9 @@ const getNotifications = async (_req, _res) => {
     }
 }
 
-const getAllNotificationsApi = async(cedula) => {
+const getAllNotificationsApi = async(userDeviceToken) => {
     let data = {
-        "cedula": cedula
+        "userDeviceToken": userDeviceToken
     }
     
     let config = {
@@ -146,13 +146,13 @@ const setNotificationReadApi = async (id) => {
 const getCountNotifications = async (_req, _res) => {
     const CC_RESPONSE = new ResponseUtilClass(_req, _res);
     const data = JSON.parse(_req.body);
-    let {cedula} = data;
-    console.log('cedula... ',cedula)
+    let {userDeviceToken} = data;
+    console.log('userDeviceToken... ',userDeviceToken)
     // const BODY = {
-    //     cedula: cedula
+    //     userDeviceToken: userDeviceToken
     // }
 
-    const notifications = await getCountNotificationsApi(cedula);
+    const notifications = await getCountNotificationsApi(userDeviceToken);
     try {
         
         const RESPONSE_PARSED = {
@@ -166,9 +166,9 @@ const getCountNotifications = async (_req, _res) => {
     }
 }
 
-const getCountNotificationsApi = async (cedula) =>{
+const getCountNotificationsApi = async (userDeviceToken) =>{
     let data = {
-        "cedula": cedula
+        "userDeviceToken": userDeviceToken
     }
 
     let config = {
